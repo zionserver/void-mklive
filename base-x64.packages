@@ -1,0 +1,50 @@
+#GRUB
+    grub-i386-efi
+    grub-x86_64-efi
+
+#BASE PKGS
+    dialog 
+    cryptsetup 
+    lvm2 
+    mdadm
+
+# NETWORKING
+    NetworkManager
+    ntp
+
+# UTILITIES
+    wget
+    bash-completion
+    xterm
+    htop
+
+# PACKAGE MANAGEMENT
+    topgrade
+    tuxc
+
+# DEVELOPMENT
+    git
+
+# FILE SYSTEM
+    exfat-utils
+    fuse-exfat
+    ntfs-3g
+    gptfdisk
+
+# TEXT EDITORS
+    nano
+    vim
+
+# REPOSITORIES
+    void-repo-multilib
+
+
+
+
+
+
+
+
+
+
+
