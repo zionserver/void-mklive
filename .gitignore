@@ -11,3 +11,4 @@ stamps*
 !dracut/*/*.sh
 !packer/scripts/*.sh
 *.asc
+package_lists/
