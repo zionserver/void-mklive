@@ -33,7 +33,6 @@ wget
 lxdm
 enlightenment
 terminology
-econnman
 upower
 xdg-utils
 xdg-desktop-portal
