@@ -1,7 +1,7 @@
 #GRUB
     grub-i386-efi
     grub-x86_64-efi
-
+	grub-btrfs
 #BASE PKGS
     dialog 
     cryptsetup 
@@ -20,7 +20,6 @@
 
 # PACKAGE MANAGEMENT
     topgrade
-    tuxc
 
 # DEVELOPMENT
     git
@@ -30,7 +29,7 @@
     fuse-exfat
     ntfs-3g
     gptfdisk
-
+	btrfs-progs
 # TEXT EDITORS
     nano
     vim
