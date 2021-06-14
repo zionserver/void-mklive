@@ -52,6 +52,7 @@ libva-vdpau-driver
 vdpauinfo
 pipewire
 gstreamer1-pipewire
+alsa-pipewire
 upower
 flatpak
 pavucontrol
