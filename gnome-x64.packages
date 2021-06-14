@@ -16,7 +16,6 @@ avahi-utils
 xorg-minimal 
 xorg-input-drivers 
 xorg-video-drivers
-intel-ucode
 setxkbmap 
 xauth 
 xrandr
@@ -29,8 +28,8 @@ alsa-plugins-pulseaudio
 #USERLAND PACKAGES
 gptfdisk
 elogind
-dbus-elogind
-dbus-elogind-x11
+#dbus-elogind
+#dbus-elogind-x11
 exfat-utils
 fuse-exfat
 wget
