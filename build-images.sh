@@ -48,7 +48,7 @@ mvImages(){
 }
 
 runBuilds(){
-    TOTAL="8"
+    TOTAL="9"
     ERR_FILE="error-status.txt"
 
     if [ -f "${ERR_FILE}" ];then
@@ -133,6 +133,20 @@ runBuilds(){
 	    echo "5/${TOTAL} completed at $(date +%T)</br></br>" >> ${HTMLDIR}/${FILENAME}    
     fi
 
+    echo "Building Image: GNOME</br>" >> ${HTMLDIR}/${FILENAME}
+    echo "Building: GNOME image..."
+    sleep 1
+    ./gnome-x64.sh
+
+    if [ $(cat ${ERR_FILE}) = "ERR=1" ];then
+        echo "<b style="color:red">Build failed for image: 'GNOME', trying again at 00:00 MST</b></br>" >> ${HTMLDIR}/${FILENAME}
+        rm ${ERR_FILE}
+        ${0} -bl
+    else
+	    echo "6/${TOTAL} completed at $(date +%T)</br></br>" >> ${HTMLDIR}/${FILENAME}    
+    fi
+
+
     #echo "Building Image: LXDE</br>" >> ${HTMLDIR}/${FILENAME}
     #echo "Building: Lxde Image..."
     #sleep 1
@@ -156,7 +170,7 @@ runBuilds(){
         rm ${ERR_FILE}
         ${0} -bl
     else
-        echo "6/${TOTAL} completed at $(date +%T)</br></br>" >> ${HTMLDIR}/${FILENAME}
+        echo "7/${TOTAL} completed at $(date +%T)</br></br>" >> ${HTMLDIR}/${FILENAME}
     fi
 
     echo "Building Image: MATE</br>" >> ${HTMLDIR}/${FILENAME}
@@ -169,7 +183,7 @@ runBuilds(){
         rm ${ERR_FILE}
         ${0} -bl
     else
-        echo "7/${TOTAL} completed at $(date +%T)</br></br>" >> ${HTMLDIR}/${FILENAME}
+        echo "8/${TOTAL} completed at $(date +%T)</br></br>" >> ${HTMLDIR}/${FILENAME}
     fi
 
     echo "Building Image: XFCE</br>" >> ${HTMLDIR}/${FILENAME}
@@ -182,7 +196,7 @@ runBuilds(){
         rm ${ERR_FILE}
         ${0} -bl
     else
-        echo "8/${TOTAL} completed at $(date +%T) </br></br>" >> ${HTMLDIR}/${FILENAME}
+        echo "9/${TOTAL} completed at $(date +%T) </br></br>" >> ${HTMLDIR}/${FILENAME}
     fi
 
 

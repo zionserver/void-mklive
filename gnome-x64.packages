@@ -53,6 +53,7 @@ vdpauinfo
 pipewire
 gstreamer1-pipewire
 alsa-pipewire
+libjack-pipewire
 upower
 flatpak
 pavucontrol
