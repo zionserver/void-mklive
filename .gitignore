@@ -20,3 +20,4 @@ mknet.sh
 mkplatformfs.sh
 mkrootfs.sh
 release.sh
+sha256sums.txt
