@@ -29,7 +29,8 @@ until [ -f ${FILENAME}-x86_64-${KERNEL}-${DATE}.iso ];do
         -r "${MULTILIB}" \
         -p "$(grep '^[^#].' ${DESKTOP}-x64.packages)" \
         -T "Void Linux ${DESKTOP} Unofficial" \
-        -o ${FILENAME}-x86_64-${KERNEL}-${DATE}.iso
+        -o ${FILENAME}-x86_64-${KERNEL}-${DATE}.iso \
+	-S "dbus elogind NetworkManager sddm"
 done
 
 if [ ! -f ${FILENAME}-x86_64-${KERNEL}-${DATE}.iso ];then

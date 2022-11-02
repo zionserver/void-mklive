@@ -26,7 +26,8 @@ until [ -f ${FILENAME}-x86_64-${KERNEL}-${DATE}.iso ];do
         -r "${MULTILIB}" \
         -p "$(grep '^[^#].' base-x64.packages)" \
         -T "${DESKTOP}" \
-        -o ${FILENAME}-x86_64-${KERNEL}-${DATE}.iso
+        -o ${FILENAME}-x86_64-${KERNEL}-${DATE}.iso \
+	-S "NetworkManager acpid"
     
 done
 
