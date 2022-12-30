@@ -7,7 +7,7 @@ dialog
 cryptsetup 
 lvm2 
 mdadm 
-ConsoleKit2
+#ConsoleKit2
 
 # X PACKAGES
 xorg-minimal 
@@ -32,16 +32,15 @@ exfat-utils
 fuse-exfat
 wget
 lxdm
-pm-utils
+#ya no esta disponible: pm-utils
 bash-completion
 nano
+micro
 git
-vim
 lxde
 xdg-utils
 xdg-desktop-portal
 xdg-desktop-portal-gtk
-xdg-desktop-portal-kde
 xdg-user-dirs
 xdg-user-dirs-gtk
 libappindicator
@@ -50,16 +49,13 @@ libvdpau-va-gl
 vdpauinfo
 pipewire
 gstreamer1-pipewire
-upower
-flatpak
-gnome-terminal
 alsa-utils
 pavucontrol
 xterm
 htop
 topgrade
 ntp
-octoxbps
+fuzzypkg
 void-repo-multilib
 gvfs-afc 
 gvfs-mtp 
@@ -68,5 +64,5 @@ udisks2
 ntfs-3g
 gnome-keyring
 network-manager-applet
-falkon
+firefox-esr
 adwaita-icon-theme
