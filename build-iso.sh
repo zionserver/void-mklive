@@ -123,3 +123,4 @@ if [ -z "$IMAGE" -o "$IMAGE" = bspwm ]; then
 	if [ ! -e $BSPWM_IMG ]; then
 		./mklive.sh -a $ARCH -o $BSPWM_IMG -p "$BSPWM_PKGS" ${REPO} "$@"
 	fi
+fi
