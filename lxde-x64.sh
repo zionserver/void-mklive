@@ -15,10 +15,9 @@ BUILDDIR="$(pwd)/build"
 
 #: ${ARCH:=$(uname -m)}
 
-sudo ./mklive.sh \
+    ./mklive.sh \
     -a x86_64 \
     -r ${CURRENT} \
-#    -r ${MUTILIB} \
     -r ${NONFREE} \
     -p "$(grep '^[^#].' ${DESKTOP}-x64.packages)" \
     -T "Void Linux ${DESKTOP} Unofficial" \
