@@ -3,9 +3,9 @@ DESKTOP="lxde"
 echo "========================="
 echo "| ${DESKTOP} VOID x86_64    |"
 echo " ------------------------"
-CURRENT=https://alpha.de.repo.voidlinux.org/current
-MUTILIB=https://alpha.de.repo.voidlinux.org/current/multilib
-NONFREE=https://alpha.de.repo.voidlinux.org/current/nonfree
+CURRENT=https://voidlinux.com.br/repo/current
+MUTILIB=https://voidlinux.com.br/repo/current/multilib
+NONFREE=https://voidlinux.com.br/repo/current/nonfree
 FILENAME="void-live-${DESKTOP}-unofficial"
 DATE=$(date +%Y%m%d)
 KERNEL=$(uname -r)
@@ -52,4 +52,4 @@ if [ ! -d "${BUILDDIR}" ];then
     mkdir ${BUILDDIR}
 fi
 
-mv ${FILENAME}-x86_64-${KERNEL}-${DATE}.iso build
+#mv ${FILENAME}-x86_64-${KERNEL}-${DATE}.iso build
