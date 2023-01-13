@@ -27,10 +27,12 @@ gptfdisk
 elogind
 dbus-elogind
 dbus-elogind-x11
+polkit
+polkit-elogind
 exfat-utils
 fuse-exfat
-gsettings-desktop-schemas
 ntfs-3g
+gsettings-desktop-schemas
 udisks2
 wget
 lxdm
