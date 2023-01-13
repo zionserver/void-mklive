@@ -29,6 +29,7 @@ dbus-elogind
 dbus-elogind-x11
 exfat-utils
 fuse-exfat
+gsettings-desktop-schemas
 ntfs-3g
 udisks2
 wget
