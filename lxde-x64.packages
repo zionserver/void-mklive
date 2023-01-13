@@ -3,23 +3,22 @@ grub-i386-efi
 grub-x86_64-efi
 
 #BASE PKGS
-dialog 
-cryptsetup 
-lvm2 
-mdadm 
-#ConsoleKit2
+dialog
+cryptsetup
+lvm2
+mdadm
 
 # X PACKAGES
 xorg-minimal 
-xorg-input-drivers 
+xorg-input-drivers
 xorg-video-drivers
 intel-ucode
-setxkbmap 
+setxkbmap
 xrandr
-xauth 
+xauth
 font-misc-misc 
-terminus-font 
-dejavu-fonts-ttf 
+terminus-font
+dejavu-fonts-ttf
 alsa-plugins-pulseaudio
 
 
@@ -30,8 +29,10 @@ dbus-elogind
 dbus-elogind-x11
 exfat-utils
 fuse-exfat
+ntfs-3g
+udisks2
 wget
-lxdm0
+lxdm
 bash-completion
 nano
 micro
@@ -71,11 +72,9 @@ topgrade
 ntp
 fuzzypkg
 void-repo-multilib
-gvfs-afc 
+gvfs-afc
 gvfs-mtp 
 gvfs-smb 
-udisks2 
-ntfs-3g
 gnome-keyring
 network-manager-applet
 firefox-esr
