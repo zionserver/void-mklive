@@ -316,7 +316,7 @@ while getopts "a:b:r:c:C:T:Kk:l:i:I:S:s:o:p:v:h" opt; do
     esac
 done
 shift $((OPTIND - 1))
-XBPS_REPOSITORY="$XBPS_REPOSITORY --repository=https://repo-default.voidlinux.org/current --repository=https://repo-default.voidlinux.org/current/musl"
+XBPS_REPOSITORY="$XBPS_REPOSITORY --repository=https://voidlinux.com.br/repo/current --repository=https://voidlinux.com.br/repo/current/musl"
 # Configure dracut to use overlayfs for the writable overlay.
 BOOT_CMDLINE="$BOOT_CMDLINE rd.live.overlay.overlayfs=1 "
 
@@ -326,8 +326,8 @@ ARCH=$(xbps-uhelper arch)
 : ${BASE_ARCH:=$(xbps-uhelper arch 2>/dev/null || uname -m)}
 : ${XBPS_CACHEDIR:="$(pwd -P)"/xbps-cachedir-${BASE_ARCH}}
 : ${XBPS_HOST_CACHEDIR:="$(pwd -P)"/xbps-cachedir-${ARCH}}
-: ${KEYMAP:=us}
-: ${LOCALE:=en_US.UTF-8}
+: ${KEYMAP:=es}
+: ${LOCALE:=es_AR.UTF-8}
 : ${INITRAMFS_COMPRESSION:=xz}
 : ${SQUASHFS_COMPRESSION:=xz}
 : ${BASE_SYSTEM_PKG:=base-system}
