@@ -3,10 +3,11 @@
 ARCH=
 IMAGE=
 
-while getopts "a:b:hr:" opt; do
+while getopts "a:b:s:hr:" opt; do
 case $opt in
 	a) ARCH="$OPTARG";;
 	b) IMAGE="$OPTARG";;
+	S) SERVICE_LIST="$OPTARG";;
 	h) echo "${0#/*}: [-a arch] [-b base|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|blackboxwm|bspwm] [-r repo]" >&2; exit 1;;
 	r) REPO="-r $OPTARG $REPO";;
 esac
@@ -121,6 +122,6 @@ if [ -z "$IMAGE" -o "$IMAGE" = fluxboxwm ]; then
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = bspwm ]; then
 	if [ ! -e $BSPWM_IMG ]; then
-		./mklive.sh -a $ARCH -o $BSPWM_IMG -p "$BSPWM_PKGS" ${REPO} "$@"
+		./mklive.sh -a $ARCH -o $BSPWM_IMG -p "$BSPWM_PKGS" ${REPO} "$@" 
 	fi
 fi
