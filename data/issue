@@ -1,27 +1,27 @@
 ###############################################################################
 
-Welcome to the Void Linux Live system. Two users are available to log in:
+Bienvenido al sistema Void Linux Live Custom. Hay dos usuarios disponibles para iniciar sesion:
 
-	- root:voidlinux
-	- anon:voidlinux
+	- root:void
+	- void:void
 
-The `anon` user additionally has `sudo(8)` permissions to run any command
-without a password.
+El usuario `anon` tiene además permisos `sudo(8)` para ejecutar cualquier comando
+sin contraseña.
 
-To start the installation please type:
+Para iniciar la instalacion, escriba:
 
     # void-installer
 
-and follow the on-screen instructions. To install additional software make
-sure to configure your network interface and then use:
+y siga las instrucciones en pantalla. Para instalar software adicional
+asegúrese de configurar su interfaz de red y, a continuación, utilice:
 
-	- xbps-install(1) to install/update packages
-	- xbps-query(1) to query for package info
+	- xbps-install(1) para instalar/actualizar paquetes,o vpm i 
+	- xbps-query(1) para buscar información sobre paquetes,o vpm s
 
-The Void Linux Handbook is also available for offline access in multiple
-formats, and can be accessed with the `void-docs(1)` utility.
+El Manual Void Linux también está disponible para acceso offline en múltiples formatos.
+formatos, y se puede acceder a él con la utilidad `void-docs(1)`.
 
-Thanks for using Void Linux.
+Gracias por usar Void Linux.
 
     https://www.voidlinux.org
 
