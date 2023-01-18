@@ -3,10 +3,11 @@
 ARCH=
 IMAGE=
 
-while getopts "a:b:s:hr:" opt; do
+while getopts "a:b:v:s:hr:" opt; do
 case $opt in
 	a) ARCH="$OPTARG";;
 	b) IMAGE="$OPTARG";;
+	v) LINUX_VERSION="$OPTARG";;
 	S) SERVICE_LIST="$OPTARG";;
 	h) echo "${0#/*}: [-a arch] [-b base|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|blackboxwm|bspwm] [-r repo]" >&2; exit 1;;
 	r) REPO="-r $OPTARG $REPO";;
@@ -87,7 +88,7 @@ fi
 
 if [ -z "$IMAGE" -o "$IMAGE" = lxde ]; then
 	if [ ! -e $LXDE_IMG ]; then
-		./mklive.sh -a $ARCH -o $LXDE_IMG -p "$LXDE_PKGS" ${REPO} "$@" -S "lxdm NetworkManager dbus"
+		./mklive.sh -a $ARCH -o $LXDE_IMG -p "$LXDE_PKGS" ${REPO} "$@" -S "lxdm NetworkManager dbus" -v "linux-lts linux-lts-headers"
 	fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = lxqt ]; then
