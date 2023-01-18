@@ -88,7 +88,7 @@ fi
 
 if [ -z "$IMAGE" -o "$IMAGE" = lxde ]; then
 	if [ ! -e $LXDE_IMG ]; then
-		./mklive.sh -a $ARCH -o $LXDE_IMG -p "$LXDE_PKGS" ${REPO} "$@" -S "lxdm NetworkManager dbus" -v "linux-lts linux-lts-headers"
+		./mklive.sh -a $ARCH -o $LXDE_IMG -p "$LXDE_PKGS" ${REPO} "$@" -S "lxdm NetworkManager dbus" -v "linux-lts"
 	fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = lxqt ]; then
