@@ -36,7 +36,8 @@ readonly BSPWM_IMG=void-live-${ARCH}-${DATE}-bspwm.iso
 
 readonly GRUB="grub-i386-efi grub-x86_64-efi"
 
-readonly BASE_PKGS="dialog linux-lts cryptsetup lvm2 mdadm fuzzypkg vpm void-docs-browse xdg-user-dirs papirus-icon-theme plata-theme gsettings-desktop-schemas ntfs-3g fuse-exfat exfat-utils $GRUB"
+readonly BASE_PKGS="dialog cryptsetup lvm2 mdadm fuzzypkg vpm void-docs-browse xdg-user-dirs papirus-icon-theme plata-theme gsettings-desktop-schemas ntfs-3g fuse-exfat exfat-utils $GRUB"
+readonly KERNEL_VERSION="linux5.15 linux-lts"
 readonly X_PKGS="$BASE_PKGS xorg-minimal xorg-input-drivers xorg-video-drivers setxkbmap xauth font-misc-misc terminus-font dejavu-fonts-ttf alsa-plugins-pulseaudio xdg-utils xdg-user-dirs"
 readonly E_PKGS="$X_PKGS lxdm enlightenment terminology udisks2 firefox-esr"
 readonly XFCE_PKGS="$X_PKGS lxdm xfce4 gnome-themes-standard gnome-keyring network-manager-applet gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox-esr"
@@ -44,7 +45,7 @@ readonly MATE_PKGS="$X_PKGS lxdm mate mate-extra gnome-keyring network-manager-a
 readonly CINNAMON_PKGS="$X_PKGS lxdm cinnamon gnome-keyring colord gnome-terminal gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox-esr"
 readonly GNOME_PKGS="$X_PKGS gnome gnome-terminal firefox-esr"
 readonly KDE_PKGS="$X_PKGS kde5 konsole firefox dolphin"
-readonly LXDE_PKGS="$X_PKGS lxdm  gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet firefox-esr openbox pcmanfm lxde-icon-theme lxde-common lxappearance lxsession lxterminal lxlauncher lxinput lxrandr lxpanel lxtask gpicview upower"
+readonly LXDE_PKGS="$X_PKGS $KERNEL_VERSION lxdm  gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet firefox-esr openbox pcmanfm lxde-icon-theme lxde-common lxappearance lxsession lxterminal lxlauncher lxinput lxrandr lxpanel lxtask gpicview upower"
 readonly LXQT_PKGS="$X_PKGS lxdm lxqt gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet qupzilla"
 readonly OPENBOX_PKGS="$X_PKGS lxdm openbox libopenbox obmenu-generator pcmanfm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet firefox-esr tint2 lxappearance obconf nitrogen menumaker xdgmenumaker"
 readonly JWM_PKGS="$X_PKGS lxdm jwm jwm-settings-manager obmenu-generator pcmanfm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet firefox-esr nitrogen menumaker xdgmenumaker"
