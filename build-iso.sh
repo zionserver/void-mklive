@@ -119,7 +119,7 @@ if [ -z "$IMAGE" -o "$IMAGE" = blackboxwm ]; then
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = fluxboxwm ]; then
 	if [ ! -e $FLUXBOXWM_IMG ]; then
-		./mklive.sh -a $ARCH -o $FLUXBOXWM_IMG -p "$FLUXBOXWM_PKGS" ${REPO} "$@" -S "lxdm NetworkManager dbus"
+		./mklive.sh -a $ARCH -o $FLUXBOXWM_IMG -p "$FLUXBOXWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus"
 	fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = bspwm ]; then
