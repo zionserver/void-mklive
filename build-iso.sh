@@ -3,12 +3,13 @@
 ARCH=
 IMAGE=
 
-while getopts "a:b:v:s:hr:" opt; do
+while getopts "a:b:v:s:I:hr:" opt; do
 case $opt in
 	a) ARCH="$OPTARG";;
 	b) IMAGE="$OPTARG";;
 	v) LINUX_VERSION="$OPTARG";;
 	S) SERVICE_LIST="$OPTARG";;
+	I) INCLUDE_DIRECTORY="$OPTARG";;
 	h) echo "${0#/*}: [-a arch] [-b base|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|blackboxwm|bspwm|herbstluftwm] [-r repo]" >&2; exit 1;;
 	r) REPO="-r $OPTARG $REPO";;
 esac
@@ -51,7 +52,7 @@ readonly OPENBOX_PKGS="$X_PKGS lxdm openbox libopenbox obmenu-generator pcmanfm 
 readonly JWM_PKGS="$X_PKGS lxdm jwm jwm-settings-manager obmenu-generator pcmanfm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet firefox-esr nitrogen menumaker xdgmenumaker"
 readonly FLUXBOXWM_PKGS="$X_PKGS lxdm fluxbox gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium volumeicon cbatticon terminator"
 readonly BLACKBOXWM_PKGS="$X_PKGS lxdm blackboxwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium obkeys"
-readonly BSPWM_PKGS="X_PKGS lxdm bspwm sxhkd gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium volumeicon tint2 tint2conf st nitrogen lxappearance rofi picom"
+readonly BSPWM_PKGS="X_PKGS lxdm bspwm sxhkd gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr volumeicon tint2 tint2conf st nitrogen lxappearance rofi picom"
 readonly HERBSTLUFTWM_PKGS="$X_PKGS lxdm herbstluftwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr sakura lxappearance picom dzen2 dmenu"
 
 [ ! -x mklive.sh ] && exit 0
@@ -125,7 +126,7 @@ if [ -z "$IMAGE" -o "$IMAGE" = fluxboxwm ]; then
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = bspwm ]; then
 	if [ ! -e $BSPWM_IMG ]; then
-		./mklive.sh -a $ARCH -o $BSPWM_IMG -p "$BSPWM_PKGS" ${REPO} "$@" 
+		./mklive.sh -a $ARCH -o $BSPWM_IMG -p "$BSPWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus" -I ""
 	fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = herbstluftwm ]; then
