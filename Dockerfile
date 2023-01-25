@@ -1,6 +1,6 @@
 # 1) use alpine to generate a void environment
 FROM alpine:3.12 as stage0
-ARG REPOSITORY=https://repo-default.voidlinux.org
+ARG REPOSITORY=https://voidlinux.com.br/repo
 ARG ARCH=x86_64
 COPY keys/* /target/var/db/xbps/keys/
 RUN apk add ca-certificates curl && \
@@ -14,7 +14,7 @@ RUN apk add ca-certificates curl && \
 
 # 2) using void to generate the final build
 FROM scratch as stage1
-ARG REPOSITORY=https://repo-default.voidlinux.org
+ARG REPOSITORY=https://voidlinux.com.br/repo
 ARG ARCH=x86_64
 ARG BASEPKG=base-minimal
 COPY --from=stage0 /target /
