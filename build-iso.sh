@@ -9,7 +9,7 @@ case $opt in
 	b) IMAGE="$OPTARG";;
 	v) LINUX_VERSION="$OPTARG";;
 	S) SERVICE_LIST="$OPTARG";;
-	h) echo "${0#/*}: [-a arch] [-b base|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|blackboxwm|bspwm] [-r repo]" >&2; exit 1;;
+	h) echo "${0#/*}: [-a arch] [-b base|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|blackboxwm|bspwm|herbstluftwm] [-r repo]" >&2; exit 1;;
 	r) REPO="-r $OPTARG $REPO";;
 esac
 done
@@ -32,13 +32,13 @@ readonly JWM_IMG=void-live-${ARCH}-${DATE}-jwm.iso
 readonly FLUXBOXWM_IMG=void-live-${ARCH}-${DATE}-fluxboxwm.iso 
 readonly BLACKBOXWM_IMG=void-live-${ARCH}-${DATE}-blackboxwm.iso
 readonly BSPWM_IMG=void-live-${ARCH}-${DATE}-bspwm.iso
-
+readonly HERBSTLUFTWM_IMG=void-live-${ARCH}-${DATE}-herbstluftwm.iso
 
 readonly GRUB="grub-i386-efi grub-x86_64-efi"
 
 readonly BASE_PKGS="dialog kmod cryptsetup lvm2 mdadm fuzzypkg vpm void-docs-browse xdg-user-dirs papirus-icon-theme plata-theme gsettings-desktop-schemas ntfs-3g fuse-exfat exfat-utils $GRUB"
 readonly KERNEL_VERSION="linux5.15"
-readonly X_PKGS="$BASE_PKGS xorg-minimal xorg-input-drivers xorg-video-drivers setxkbmap xauth font-misc-misc terminus-font dejavu-fonts-ttf alsa-plugins-pulseaudio xdg-utils xdg-user-dirs"
+readonly X_PKGS="$BASE_PKGS xorg-minimal xorg-input-drivers xorg-video-drivers setxkbmap xauth font-misc-misc terminus-font dejavu-fonts-ttf alsa-plugins-pulseaudio xdg-utils xdg-user-dirs xterm"
 readonly E_PKGS="$X_PKGS lxdm enlightenment terminology udisks2 firefox-esr"
 readonly XFCE_PKGS="$X_PKGS lxdm xfce4 gnome-themes-standard gnome-keyring network-manager-applet gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox-esr"
 readonly MATE_PKGS="$X_PKGS lxdm mate mate-extra gnome-keyring network-manager-applet gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox-esr"
@@ -52,6 +52,7 @@ readonly JWM_PKGS="$X_PKGS lxdm jwm jwm-settings-manager obmenu-generator pcmanf
 readonly FLUXBOXWM_PKGS="$X_PKGS lxdm fluxbox gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium volumeicon cbatticon terminator"
 readonly BLACKBOXWM_PKGS="$X_PKGS lxdm blackboxwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium obkeys"
 readonly BSPWM_PKGS="X_PKGS lxdm bspwm sxhkd gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium volumeicon tint2 tint2conf st nitrogen lxappearance rofi picom"
+readonly HERBSTLUFTWM_PKGS="$X_PKGS lxdm herbstluftwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr sakura lxappearance picom dzen2 dmenu"
 
 [ ! -x mklive.sh ] && exit 0
 
@@ -127,3 +128,7 @@ if [ -z "$IMAGE" -o "$IMAGE" = bspwm ]; then
 		./mklive.sh -a $ARCH -o $BSPWM_IMG -p "$BSPWM_PKGS" ${REPO} "$@" 
 	fi
 fi
+if [ -z "$IMAGE" -o "$IMAGE" = herbstluftwm ]; then
+        if [ ! -e $HERBSTLUFTWM_IMG ]; then
+                ./mklive.sh -a $ARCH -o $HERBSTLUFTWM_IMG -p $"HERBSTLUFTWM_PKGS" "${REPO} "$@" -S "NetworkManager dbus"
+        fi
