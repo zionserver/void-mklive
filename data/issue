@@ -5,7 +5,7 @@ Bienvenido al sistema Void Linux Live Custom. Hay dos usuarios disponibles para 
 	- root:void
 	- void:void
 
-El usuario `anon` tiene además permisos `sudo(8)` para ejecutar cualquier comando
+El usuario `void` tiene además permisos `sudo(8)` para ejecutar cualquier comando
 sin contraseña.
 
 Para iniciar la instalacion, escriba:
