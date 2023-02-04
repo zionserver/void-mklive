@@ -135,6 +135,7 @@ if [ -z "$IMAGE" -o "$IMAGE" = herbstluftwm ]; then
         if [ ! -e $HERBSTLUFTWM_IMG ]; then
                 ./mklive.sh -a $ARCH -o $HERBSTLUFTWM_IMG -p $"HERBSTLUFTWM_PKGS" "${REPO} "$@" -S "NetworkManager dbus"
         fi
+fi
 if [ -z "$IMAGE" -o "$IMAGE" = pekwm ]; then
         if [ ! -e $PEKWM_IMG ]; then
                 ./mklive.sh -a $ARCH -o $PEKWM_IMG -p $"PEKWM_PKGS" "${REPO} "$@" -S "NetworkManager dbus"
