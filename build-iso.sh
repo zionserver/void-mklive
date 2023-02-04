@@ -10,7 +10,7 @@ case $opt in
 	v) LINUX_VERSION="$OPTARG";;
 	S) SERVICE_LIST="$OPTARG";;
 	I) INCLUDE_DIRECTORY="$OPTARG";;
-	h) echo "${0#/*}: [-a arch] [-b base|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|blackboxwm|bspwm|herbstluftwm] [-r repo]" >&2; exit 1;;
+	h) echo "${0#/*}: [-a arch] [-b base|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|blackboxwm|bspwm|herbstluftwm|pekwm] [-r repo]" >&2; exit 1;;
 	r) REPO="-r $OPTARG $REPO";;
 esac
 done
@@ -34,6 +34,7 @@ readonly FLUXBOXWM_IMG=void-live-${ARCH}-${DATE}-fluxboxwm.iso
 readonly BLACKBOXWM_IMG=void-live-${ARCH}-${DATE}-blackboxwm.iso
 readonly BSPWM_IMG=void-live-${ARCH}-${DATE}-bspwm.iso
 readonly HERBSTLUFTWM_IMG=void-live-${ARCH}-${DATE}-herbstluftwm.iso
+readonly PEKWM_IMG=void-live-${ARCH}-${DATE}-pekwm.iso
 
 readonly GRUB="grub-i386-efi grub-x86_64-efi"
 
@@ -54,6 +55,7 @@ readonly FLUXBOXWM_PKGS="$X_PKGS lxdm fluxbox gvfs-afc gvfs-mtp gvfs-smb udisks2
 readonly BLACKBOXWM_PKGS="$X_PKGS lxdm blackboxwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium obkeys"
 readonly BSPWM_PKGS="X_PKGS lxdm bspwm sxhkd gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr volumeicon tint2 tint2conf st nitrogen lxappearance rofi picom"
 readonly HERBSTLUFTWM_PKGS="$X_PKGS lxdm herbstluftwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr sakura lxappearance picom dzen2 dmenu"
+readonly PEKWM_PKGS="X_PKGs lxdm pekwm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview tint2 nitrogen lxtask upower cbatticon volumeicon" 
 
 [ ! -x mklive.sh ] && exit 0
 
@@ -132,4 +134,8 @@ fi
 if [ -z "$IMAGE" -o "$IMAGE" = herbstluftwm ]; then
         if [ ! -e $HERBSTLUFTWM_IMG ]; then
                 ./mklive.sh -a $ARCH -o $HERBSTLUFTWM_IMG -p $"HERBSTLUFTWM_PKGS" "${REPO} "$@" -S "NetworkManager dbus"
+        fi
+if [ -z "$IMAGE" -o "$IMAGE" = pekwm ]; then
+        if [ ! -e $PEKWM_IMG ]; then
+                ./mklive.sh -a $ARCH -o $PEKWM_IMG -p $"PEKWM_PKGS" "${REPO} "$@" -S "NetworkManager dbus"
         fi
