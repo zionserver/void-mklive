@@ -10,7 +10,7 @@ case $opt in
 	v) LINUX_VERSION="$OPTARG";;
 	S) SERVICE_LIST="$OPTARG";;
 	I) INCLUDE_DIRECTORY="$OPTARG";;
-	h) echo "${0#/*}: [-a arch] [-b base|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|blackboxwm|bspwm|herbstluftwm|pekwm] [-r repo]" >&2; exit 1;;
+	h) echo "${0#/*}: [-a arch] [-b base|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|blackboxwm|bspwm|herbstluftwm|pekwm|icewm] [-r repo]" >&2; exit 1;;
 	r) REPO="-r $OPTARG $REPO";;
 esac
 done
@@ -35,12 +35,13 @@ readonly BLACKBOXWM_IMG=void-live-${ARCH}-${DATE}-blackboxwm.iso
 readonly BSPWM_IMG=void-live-${ARCH}-${DATE}-bspwm.iso
 readonly HERBSTLUFTWM_IMG=void-live-${ARCH}-${DATE}-herbstluftwm.iso
 readonly PEKWM_IMG=void-live-${ARCH}-${DATE}-pekwm.iso
+readonly ICEWM_IMG=void-live-${ARCH}-${DATE}-icewm.iso
 
 readonly GRUB="grub-i386-efi grub-x86_64-efi"
 
 readonly BASE_PKGS="dialog kmod cryptsetup lvm2 mdadm fuzzypkg vpm void-docs-browse xdg-user-dirs papirus-icon-theme plata-theme gsettings-desktop-schemas ntfs-3g fuse-exfat exfat-utils $GRUB"
 readonly KERNEL_VERSION="linux5.15"
-readonly X_PKGS="$BASE_PKGS xorg-minimal xorg-input-drivers xorg-video-drivers setxkbmap xauth font-misc-misc terminus-font dejavu-fonts-ttf alsa-plugins-pulseaudio xdg-utils xdg-user-dirs xterm"
+readonly X_PKGS="$BASE_PKGS xorg-minimal xorg-input-drivers xorg-video-drivers setxkbmap xprop xauth font-misc-misc terminus-font dejavu-fonts-ttf alsa-plugins-pulseaudio xdg-utils xdg-user-dirs xterm"
 readonly E_PKGS="$X_PKGS lxdm enlightenment terminology udisks2 firefox-esr"
 readonly XFCE_PKGS="$X_PKGS lxdm xfce4 gnome-themes-standard gnome-keyring network-manager-applet gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox-esr"
 readonly MATE_PKGS="$X_PKGS lxdm mate mate-extra gnome-keyring network-manager-applet gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox-esr"
@@ -55,7 +56,8 @@ readonly FLUXBOXWM_PKGS="$X_PKGS lxdm fluxbox gvfs-afc gvfs-mtp gvfs-smb udisks2
 readonly BLACKBOXWM_PKGS="$X_PKGS lxdm blackboxwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium obkeys"
 readonly BSPWM_PKGS="X_PKGS lxdm bspwm sxhkd gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr volumeicon tint2 tint2conf st nitrogen lxappearance rofi picom"
 readonly HERBSTLUFTWM_PKGS="$X_PKGS lxdm herbstluftwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr sakura lxappearance picom dzen2 dmenu"
-readonly PEKWM_PKGS="X_PKGs lxdm pekwm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview tint2 nitrogen lxtask upower cbatticon volumeicon" 
+readonly PEKWM_PKGS="X_PKGS lxdm pekwm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview tint2 nitrogen lxtask upower cbatticon volumeicon" 
+readonly ICEWM_PKGS="X_PKGS lxdm icewm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
 
 [ ! -x mklive.sh ] && exit 0
 
@@ -128,15 +130,21 @@ if [ -z "$IMAGE" -o "$IMAGE" = fluxboxwm ]; then
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = bspwm ]; then
 	if [ ! -e $BSPWM_IMG ]; then
-		./mklive.sh -a $ARCH -o $BSPWM_IMG -p "$BSPWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus" -I ""
-	fi
+		./mklive.sh -a $ARCH -o $BSPWM_IMG -p "$BSPWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus" 
+		fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = herbstluftwm ]; then
-        if [ ! -e $HERBSTLUFTWM_IMG ]; then
-                ./mklive.sh -a $ARCH -o $HERBSTLUFTWM_IMG -p $"HERBSTLUFTWM_PKGS" "${REPO} "$@" -S "NetworkManager dbus"
-        fi
+	if [ ! -e $HERBSTLUFTWM_IMG ]; then
+		./mklive.sh -a $ARCH -o $HERBSTLUFTWM_IMG -p "$HERBSTLUFTWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus" 
+	fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = pekwm ]; then
-        if [ ! -e $PEKWM_IMG ]; then
-                ./mklive.sh -a $ARCH -o $PEKWM_IMG -p $"PEKWM_PKGS" "${REPO} "$@" -S "NetworkManager dbus"
-        fi
+	if [ ! -e $PEKWM_IMG ]; then
+		./mklive.sh -a $ARCH -o $PEKWM_IMG -p "$PEKWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus"  
+	fi
+fi
+if [ -z "$IMAGE" -o "$IMAGE" = icewm ]; then
+        if [ ! -e $ICEWM_IMG ]; then
+	        ./mklive.sh -a $ARCH -o $ICEWM_IMG -p "$ICEWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus"
+	fi
+fi
