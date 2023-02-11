@@ -15,8 +15,8 @@ Para iniciar la instalacion, escriba:
 y siga las instrucciones en pantalla. Para instalar software adicional
 asegúrese de configurar su interfaz de red y, a continuación, utilice:
 
-	- xbps-install(1) para instalar/actualizar paquetes,o vpm i 
-	- xbps-query(1) para buscar información sobre paquetes,o vpm s
+	- xbps-install(1) para instalar/actualizar paquetes,alternativamente puede usar vpm i 
+	- xbps-query(1) para buscar información sobre paquetes,alternativamente puede usar vpm s
 
 El Manual Void Linux también está disponible para acceso offline en múltiples formatos.
 formatos, y se puede acceder a él con la utilidad `void-docs(1)`.
