@@ -73,7 +73,7 @@ if [ -z "$IMAGE" -o "$IMAGE" = e ]; then
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = xfce ]; then
 	if [ ! -e $XFCE_IMG ]; then
-		./mklive.sh -a $ARCH -o $XFCE_IMG -p "$XFCE_PKGS" ${REPO} "$@"
+		./mklive.sh -a $ARCH -o $XFCE_IMG -p "$XFCE_PKGS" ${REPO} "$@" -v linux5.15
 	fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = mate ]; then
@@ -95,7 +95,7 @@ fi
 
 if [ -z "$IMAGE" -o "$IMAGE" = lxde ]; then
 	if [ ! -e $LXDE_IMG ]; then
-		./mklive.sh -a $ARCH -o $LXDE_IMG -p "$LXDE_PKGS" ${REPO} "$@" -S "lxdm NetworkManager dbus" -v "linux5.15"
+		./mklive.sh -a $ARCH -o $LXDE_IMG -p "$LXDE_PKGS" ${REPO} "$@" -S "lxdm NetworkManager dbus" -v linux5.15
 	fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = lxqt ]; then
