@@ -54,10 +54,10 @@ readonly OPENBOX_PKGS="$X_PKGS lxdm openbox libopenbox obmenu-generator pcmanfm 
 readonly JWM_PKGS="$X_PKGS lxdm jwm jwm-settings-manager obmenu-generator pcmanfm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet firefox-esr nitrogen menumaker xdgmenumaker"
 readonly FLUXBOXWM_PKGS="$X_PKGS $IVDRI_PKGS lxdm fluxbox gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium volumeicon cbatticon lxterminal"
 readonly BLACKBOXWM_PKGS="$X_PKGS lxdm blackboxwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium obkeys"
-readonly BSPWM_PKGS="X_PKGS lxdm bspwm sxhkd gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr volumeicon tint2 tint2conf st nitrogen lxappearance rofi picom"
+readonly BSPWM_PKGS="$X_PKGS $IVDRI_PKGS lxdm bspwm sxhkd gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr volumeicon tint2 tint2conf st nitrogen lxappearance rofi picom"
 readonly HERBSTLUFTWM_PKGS="$X_PKGS lxdm herbstluftwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr sakura lxappearance picom dzen2 dmenu"
-readonly PEKWM_PKGS="X_PKGS lxdm pekwm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview tint2 nitrogen lxtask upower cbatticon volumeicon" 
-readonly ICEWM_PKGS="X_PKGS lxdm icewm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
+readonly PEKWM_PKGS="$X_PKGS lxdm pekwm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview tint2 nitrogen lxtask upower cbatticon volumeicon" 
+readonly ICEWM_PKGS="$X_PKGS lxdm icewm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
 
 [ ! -x mklive.sh ] && exit 0
 
