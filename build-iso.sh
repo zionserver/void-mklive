@@ -130,7 +130,7 @@ if [ -z "$IMAGE" -o "$IMAGE" = fluxboxwm ]; then
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = bspwm ]; then
 	if [ ! -e $BSPWM_IMG ]; then
-		./mklive.sh -a $ARCH -o $BSPWM_IMG -p "$BSPWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus" 
+		./mklive.sh -a $ARCH -o $BSPWM_IMG -p "$BSPWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus" -v linux5.15
 		fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = herbstluftwm ]; then
