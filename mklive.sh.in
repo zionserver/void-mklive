@@ -316,7 +316,7 @@ while getopts "a:b:r:c:C:T:Kk:l:i:I:S:s:o:p:v:h" opt; do
     esac
 done
 shift $((OPTIND - 1))
-XBPS_REPOSITORY="$XBPS_REPOSITORY --repository=https://voidlinux.com.br/repo/current --repository=https://voidlinux.com.br/repo/current/musl"
+XBPS_REPOSITORY="$XBPS_REPOSITORY --repository=https://repo-fastly.voidlinux.org/current --repository=https://repo-fastly.voidlinux.org/current/musl"
 # Configure dracut to use overlayfs for the writable overlay.
 BOOT_CMDLINE="$BOOT_CMDLINE rd.live.overlay.overlayfs=1 "
 
@@ -330,8 +330,8 @@ ARCH=$(xbps-uhelper arch)
 : ${LOCALE:=es_AR.UTF-8}
 : ${INITRAMFS_COMPRESSION:=xz}
 : ${SQUASHFS_COMPRESSION:=xz}
-: ${BASE_SYSTEM_PKG:=base-system}
-#: ${BASE_SYSTEM_PKG:=linux5.15 dracut ncurses coreutils findutils diffutils libgcc dash bash grep gzip file sed gawk less util-linux which tar man-pages mdocml shadow e2fsprogs btrfs-progs xfsprogs f2fs-tools dosfstools procps-ng tzdata pciutils usbutils iana-etc openssh dhcpcd kbd iproute2 iputils iw wpa_supplicant xbps nvi sudo wifi-firmware linux-firmware-amd linux-firmware-intel linux-firmware-nvidia linux-firmware-network void-artwork traceroute ethtool kmod acpid eudev runit-void removed-packages}
+#: ${BASE_SYSTEM_PKG:=base-system}
+: ${BASE_SYSTEM_PKG:=linux5.15 dracut ncurses coreutils findutils diffutils libgcc dash bash grep gzip file sed gawk less util-linux which tar man-pages mdocml shadow e2fsprogs btrfs-progs xfsprogs f2fs-tools dosfstools procps-ng tzdata pciutils usbutils iana-etc openssh dhcpcd kbd iproute2 iputils iw wpa_supplicant xbps nvi sudo wifi-firmware linux-firmware-amd linux-firmware-intel linux-firmware-nvidia linux-firmware-network void-artwork traceroute ethtool kmod acpid eudev runit-void removed-packages}
 : ${BOOT_TITLE:="Void Linux"}
 
 # Required packages in the image for a working system.
