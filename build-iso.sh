@@ -17,6 +17,7 @@ done
 shift $((OPTIND - 1))
 
 : ${ARCH:=$(uname -m)}
+REPO='https://repo-fastly.voidlinux.org/'
 
 readonly DATE=$(date +%Y%m%d)
 readonly BASE_IMG=void-live-${ARCH}-${DATE}.iso
@@ -39,7 +40,7 @@ readonly ICEWM_IMG=void-live-${ARCH}-${DATE}-icewm.iso
 
 readonly GRUB="grub-i386-efi grub-x86_64-efi"
 
-readonly BASE_PKGS="dialog kmod cryptsetup lvm2 mdadm fuzzypkg vpm void-docs-browse xdg-user-dirs papirus-icon-theme plata-theme gsettings-desktop-schemas ntfs-3g fuse-exfat exfat-utils $GRUB"
+readonly BASE_PKGS="dialog kmod cryptsetup lvm2 mdadm fuzzypkg vpm void-docs-browse xdg-user-dirs papirus-icon-theme plata-theme gsettings-desktop-schemas ntfs-3g fuse-exfat exfat-utils xmirror nano unzip $GRUB"
 readonly KERNEL_VERSION="linux5.15"
 readonly IVDRI_PKGS="intel-video-accel intel-media-driver libva-vdpau-driver"
 readonly X_PKGS="$BASE_PKGS xorg-minimal xorg-input-drivers xorg-video-drivers setxkbmap xprop xauth font-misc-misc terminus-font dejavu-fonts-ttf alsa-plugins-pulseaudio xdg-utils xdg-user-dirs xterm "
