@@ -74,29 +74,29 @@ if [ -z "$IMAGE" -o "$IMAGE" = e ]; then
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = xfce ]; then
 	if [ ! -e $XFCE_IMG ]; then
-		./mklive.sh -a $ARCH -o $XFCE_IMG -p "$XFCE_PKGS" ${REPO} "$@" -v linux5.15
+		./mklive.sh -a $ARCH -o $XFCE_IMG -p "$XFCE_PKGS" ${REPO} "$@" -S "NetworkManager dbus" -v linux5.15
 	fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = mate ]; then
 	if [ ! -e $MATE_IMG ]; then
-		./mklive.sh -a $ARCH -o $MATE_IMG -p "$MATE_PKGS" ${REPO} "$@"
+		./mklive.sh -a $ARCH -o $MATE_IMG -p "$MATE_PKGS" ${REPO} "$@" -v linux5.15
 	fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = cinnamon ]; then
 	if [ ! -e $CINNAMON_IMG ]; then
-		./mklive.sh -a $ARCH -o $CINNAMON_IMG -p "$CINNAMON_PKGS" ${REPO} "$@"
+		./mklive.sh -a $ARCH -o $CINNAMON_IMG -p "$CINNAMON_PKGS" ${REPO} "$@" -v linux5.15
 	fi
 fi
 
 if [ -z "$IMAGE" -o "$IMAGE" = gnome ]; then
 	if [ ! -e $GNOME_IMG ]; then
-		./mklive.sh -a $ARCH -o $GNOME_IMG -p "$GNOME_PKGS" ${REPO} "$@"
+		./mklive.sh -a $ARCH -o $GNOME_IMG -p "$GNOME_PKGS" ${REPO} "$@" 
 	fi
 fi
 
 if [ -z "$IMAGE" -o "$IMAGE" = lxde ]; then
 	if [ ! -e $LXDE_IMG ]; then
-		./mklive.sh -a $ARCH -o $LXDE_IMG -p "$LXDE_PKGS" ${REPO} "$@" -S "lxdm NetworkManager dbus" -v linux5.15
+		./mklive.sh -a $ARCH -o $LXDE_IMG -p "$LXDE_PKGS" ${REPO} "$@" -S "NetworkManager dbus" -v linux5.15
 	fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = lxqt ]; then
