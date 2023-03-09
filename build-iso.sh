@@ -10,7 +10,7 @@ case $opt in
 	v) LINUX_VERSION="$OPTARG";;
 	S) SERVICE_LIST="$OPTARG";;
 	I) INCLUDE_DIRECTORY="$OPTARG";;
-	h) echo "${0#/*}: [-a arch] [-b base|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|blackboxwm|bspwm|herbstluftwm|pekwm|icewm] [-r repo]" >&2; exit 1;;
+	h) echo "${0#/*}: [-a arch] [-b base|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|awesomewm|blackboxwm|bspwm|herbstluftwm|pekwm|icewm] [-r repo]" >&2; exit 1;;
 	r) REPO="-r $OPTARG $REPO";;
 esac
 done
@@ -37,6 +37,8 @@ readonly BSPWM_IMG=void-live-${ARCH}-${DATE}-bspwm.iso
 readonly HERBSTLUFTWM_IMG=void-live-${ARCH}-${DATE}-herbstluftwm.iso
 readonly PEKWM_IMG=void-live-${ARCH}-${DATE}-pekwm.iso
 readonly ICEWM_IMG=void-live-${ARCH}-${DATE}-icewm.iso
+readonly AWESOMEWM_IMG=void-live-${ARCH}-${DATE}-awesomewm.iso
+
 
 readonly GRUB="grub-i386-efi grub-x86_64-efi"
 
@@ -59,6 +61,7 @@ readonly BSPWM_PKGS="$X_PKGS $IVDRI_PKGS lxdm bspwm sxhkd gvfs-afc gvfs-mtp gvfs
 readonly HERBSTLUFTWM_PKGS="$X_PKGS lxdm herbstluftwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr sakura lxappearance picom dzen2 dmenu"
 readonly PEKWM_PKGS="$X_PKGS lxdm pekwm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview tint2 nitrogen lxtask upower cbatticon volumeicon" 
 readonly ICEWM_PKGS="$X_PKGS lxdm icewm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
+readonly AWESOMEWM_PKGS="$X_PKGS lxdm awesome gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm lxterminal lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
 
 [ ! -x mklive.sh ] && exit 0
 
@@ -147,5 +150,10 @@ fi
 if [ -z "$IMAGE" -o "$IMAGE" = icewm ]; then
         if [ ! -e $ICEWM_IMG ]; then
 	        ./mklive.sh -a $ARCH -o $ICEWM_IMG -p "$ICEWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus"
+	fi
+fi
+if [ -z "$IMAGE" -o "$IMAGE" = awesomewm ]; then
+        if [ ! -e $AWESOMEWM_IMG ]; then
+	        ./mklive.sh -a $ARCH -o $AWESOMEWM_IMG -p "$AWESOMEWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus" -v linux5.15
 	fi
 fi
