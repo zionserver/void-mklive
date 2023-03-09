@@ -29,6 +29,6 @@ MENU LABEL @@BOOT_TITLE@@ @@KERNVER@@ @@ARCH@@ (RAM)
 KERNEL /boot/vmlinuz
 APPEND initrd=/boot/initrd root=live:CDLABEL=VOID_LIVE init=/sbin/init ro rd.luks=0 rd.md=0 rd.dm=0 loglevel=4 vconsole.unicode=1 vconsole.keymap=@@KEYMAP@@ locale.LANG=@@LOCALE@@ @@BOOT_CMDLINE@@ rd.live.ram
 LABEL c
-MENU LABEL Arrancar el primer disco duro o ssd encontrado por la BIOS
+MENU LABEL Iniciar desde el primer disco duro o ssd encontrado por la BIOS
 COM32 chain.c32
 APPEND hd0
