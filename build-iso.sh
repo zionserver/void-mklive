@@ -10,7 +10,7 @@ case $opt in
 	v) LINUX_VERSION="$OPTARG";;
 	S) SERVICE_LIST="$OPTARG";;
 	I) INCLUDE_DIRECTORY="$OPTARG";;
-	h) echo "${0#/*}: [-a arch] [-b base|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|awesomewm|blackboxwm|bspwm|herbstluftwm|pekwm|icewm] [-r repo]" >&2; exit 1;;
+	h) echo "${0#/*}: [-a arch] [-b base|tty|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|awesomewm|blackboxwm|bspwm|herbstluftwm|pekwm|icewm] [-r repo]" >&2; exit 1;;
 	r) REPO="-r $OPTARG $REPO";;
 esac
 done
@@ -21,6 +21,7 @@ REPO='https://repo-fastly.voidlinux.org/'
 
 readonly DATE=$(date +%Y%m%d)
 readonly BASE_IMG=void-live-${ARCH}-${DATE}.iso
+readonly TTY_IMG=void-live-${ARCH}-${DATE}.iso
 readonly E_IMG=void-live-${ARCH}-${DATE}-enlightenment.iso
 readonly XFCE_IMG=void-live-${ARCH}-${DATE}-xfce.iso
 readonly MATE_IMG=void-live-${ARCH}-${DATE}-mate.iso
@@ -45,6 +46,7 @@ readonly GRUB="grub-i386-efi grub-x86_64-efi"
 readonly BASE_PKGS="dialog kmod cryptsetup lvm2 mdadm fuzzypkg vpm void-docs-browse xdg-user-dirs papirus-icon-theme plata-theme gsettings-desktop-schemas ntfs-3g fuse-exfat exfat-utils xmirror nano unzip $GRUB"
 readonly KERNEL_VERSION="linux5.15"
 readonly IVDRI_PKGS="intel-video-accel intel-media-driver libva-vdpau-driver"
+readonly TTY_PKGS="libcaca tty-clock gotop castero micro fuzzypkg mutt sd stig aerc vpm pfetch gping telegram-tg xmirror void-docs void-docs-browse kmod setxkbmap network-manager-applet links"
 readonly X_PKGS="$BASE_PKGS xorg-minimal xorg-input-drivers xorg-video-drivers setxkbmap xprop xauth font-misc-misc terminus-font dejavu-fonts-ttf alsa-plugins-pulseaudio xdg-utils xdg-user-dirs xterm "
 readonly E_PKGS="$X_PKGS lxdm enlightenment terminology udisks2 firefox-esr"
 readonly XFCE_PKGS="$X_PKGS $IVDRI_PKGS lxdm xfce4 gnome-themes-standard gnome-keyring network-manager-applet gvfs-afc gvfs-mtp gvfs-smb udisks2 firefox ntfs-3g"
@@ -68,6 +70,11 @@ readonly AWESOMEWM_PKGS="$X_PKGS lxdm awesome gvfs-afc gvfs-mtp gvfs-smb network
 if [ -z "$IMAGE" -o "$IMAGE" = base ]; then
 	if [ ! -e $BASE_IMG ]; then
 		./mklive.sh -a $ARCH -o $BASE_IMG -p "$BASE_PKGS" ${REPO} "$@"
+	fi
+fi
+if [ -z "$IMAGE" -o "$IMAGE" = tty ]; then
+	if [ ! -e $TTY_IMG ]; then
+		./mklive.sh -a $ARCH -o $TTY_IMG -p "$TTY_PKGS" ${REPO} "$@"
 	fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = e ]; then
