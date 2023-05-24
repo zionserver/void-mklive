@@ -43,7 +43,7 @@ readonly AWESOMEWM_IMG=void-live-${ARCH}-${DATE}-awesomewm.iso
 
 readonly GRUB="grub-i386-efi grub-x86_64-efi"
 
-readonly BASE_PKGS="dialog kmod cryptsetup lvm2 mdadm fuzzypkg vpm void-docs-browse xdg-user-dirs papirus-icon-theme plata-theme gsettings-desktop-schemas ntfs-3g fuse-exfat exfat-utils xmirror nano unzip $GRUB"
+readonly BASE_PKGS="dialog kmod cryptsetup lvm2 mdadm fuzzypkg vpm void-docs-browse xdg-user-dirs plata-theme gsettings-desktop-schemas ntfs-3g fuse-exfat exfat-utils xmirror nano unzip $GRUB"
 readonly KERNEL_VERSION="linux5.15"
 readonly IVDRI_PKGS="intel-video-accel intel-media-driver libva-vdpau-driver"
 readonly TTY_PKGS="dialog libcaca tty-clock gotop castero micro fuzzypkg mutt sd stig aerc vpm pfetch gping telegram-tg xmirror void-docs void-docs-browse kmod setxkbmap network-manager-applet links  ntfs-3g fuse-exfat exfat-utils unzip gsettings-desktop-schemas polkit"
@@ -55,7 +55,7 @@ readonly CINNAMON_PKGS="$X_PKGS lxdm cinnamon gnome-keyring colord gnome-termina
 readonly KDE_PKGS="$X_PKGS kde5 konsole firefox dolphin"
 readonly LXDE_PKGS="$X_PKGS $KERNEL_VERSION lxdm  gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet firefox-esr openbox pcmanfm lxde-icon-theme lxde-common lxappearance lxsession lxterminal lxlauncher lxinput lxrandr lxpanel lxtask gpicview upower"
 readonly LXQT_PKGS="$X_PKGS lxdm lxqt gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet qupzilla"
-readonly OPENBOX_PKGS="$X_PKGS lxdm openbox libopenbox obmenu-generator pcmanfm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet firefox-esr tint2 lxappearance obconf nitrogen menumaker xdgmenumaker"
+readonly OPENBOX_PKGS="$X_PKGS lxdm openbox libopenbox obmenu-generator pcmanfm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet chromium tint2 tint2conf lxappearance obconf nitrogen menumaker xdgmenumaker lxterminal pavucontrol"
 readonly JWM_PKGS="$X_PKGS lxdm jwm jwm-settings-manager obmenu-generator pcmanfm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet firefox-esr nitrogen menumaker xdgmenumaker"
 readonly FLUXBOXWM_PKGS="$X_PKGS $IVDRI_PKGS lxdm fluxbox gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium volumeicon cbatticon lxterminal"
 readonly BLACKBOXWM_PKGS="$X_PKGS lxdm blackboxwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium obkeys"
