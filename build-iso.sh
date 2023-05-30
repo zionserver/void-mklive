@@ -10,7 +10,7 @@ case $opt in
 	v) LINUX_VERSION="$OPTARG";;
 	S) SERVICE_LIST="$OPTARG";;
 	I) INCLUDE_DIRECTORY="$OPTARG";;
-	h) echo "${0#/*}: [-a arch] [-b base|tty|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|awesomewm|blackboxwm|bspwm|herbstluftwm|pekwm|icewm] [-r repo]" >&2; exit 1;;
+	h) echo "${0#/*}: [-a arch] [-b base|tty|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|awesomewm|blackboxwm|bspwm|herbstluftwm|pekwm|icewm|fvwm3] [-r repo]" >&2; exit 1;;
 	r) REPO="-r $OPTARG $REPO";;
 esac
 done
@@ -39,7 +39,7 @@ readonly HERBSTLUFTWM_IMG=void-live-${ARCH}-${DATE}-herbstluftwm.iso
 readonly PEKWM_IMG=void-live-${ARCH}-${DATE}-pekwm.iso
 readonly ICEWM_IMG=void-live-${ARCH}-${DATE}-icewm.iso
 readonly AWESOMEWM_IMG=void-live-${ARCH}-${DATE}-awesomewm.iso
-
+readonly FVWM3_IMG=void-live-${ARCH}-${DATE}-fvwm3.iso
 
 readonly GRUB="grub-i386-efi grub-x86_64-efi"
 
@@ -64,6 +64,7 @@ readonly HERBSTLUFTWM_PKGS="$X_PKGS lxdm herbstluftwm gvfs-afc gvfs-mtp gvfs-smb
 readonly PEKWM_PKGS="$X_PKGS lxdm pekwm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview tint2 nitrogen lxtask upower cbatticon volumeicon" 
 readonly ICEWM_PKGS="$X_PKGS lxdm icewm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
 readonly AWESOMEWM_PKGS="$X_PKGS lxdm awesome gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm lxterminal lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
+readonly FVWM3_PKGS="$X_PKGS lxdm fvwm3 pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet xterm lxterminal lxappearance picom gpicview lxtask upower volumeicon cbatticon"
 
 [ ! -x mklive.sh ] && exit 0
 
