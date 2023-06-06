@@ -17,7 +17,7 @@ done
 shift $((OPTIND - 1))
 
 : ${ARCH:=$(uname -m)}
-REPO='https://repo-fastly.voidlinux.org/'
+REPO='https://repo-fastly.voidlinux.org'
 
 readonly DATE=$(date +%Y%m%d)
 readonly BASE_IMG=void-live-${ARCH}-${DATE}.iso
@@ -57,7 +57,7 @@ readonly LXDE_PKGS="$X_PKGS $KERNEL_VERSION lxdm  gvfs-afc gvfs-mtp gvfs-smb udi
 readonly LXQT_PKGS="$X_PKGS lxdm lxqt gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet qupzilla"
 readonly OPENBOX_PKGS="$X_PKGS lxdm openbox libopenbox obmenu-generator pcmanfm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet chromium gotop tint2 tint2conf rofi lxappearance obconf nitrogen menumaker xdgmenumaker lxterminal pavucontrol"
 readonly JWM_PKGS="$X_PKGS lxdm jwm jwm-settings-manager obmenu-generator pcmanfm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet firefox-esr nitrogen menumaker xdgmenumaker"
-readonly FLUXBOXWM_PKGS="$X_PKGS $IVDRI_PKGS lxdm fluxbox gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium volumeicon cbatticon lxterminal"
+readonly FLUXBOXWM_PKGS="$X_PKGS $IVDRI_PKGS lxdm fluxbox gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium volumeicon cbatticon sakura"
 readonly BLACKBOXWM_PKGS="$X_PKGS lxdm blackboxwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm chromium obkeys"
 readonly BSPWM_PKGS="$X_PKGS $IVDRI_PKGS lxdm bspwm sxhkd gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr volumeicon tint2 tint2conf st nitrogen lxappearance rofi picom"
 readonly HERBSTLUFTWM_PKGS="$X_PKGS lxdm herbstluftwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr sakura lxappearance picom dzen2 dmenu"
@@ -137,7 +137,7 @@ if [ -z "$IMAGE" -o "$IMAGE" = blackboxwm ]; then
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = fluxboxwm ]; then
 	if [ ! -e $FLUXBOXWM_IMG ]; then
-		./mklive.sh -a $ARCH -o $FLUXBOXWM_IMG -p "$FLUXBOXWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus"
+		./mklive.sh -a $ARCH -o $FLUXBOXWM_IMG -p "$FLUXBOXWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus" -I includedir/
 	fi
 fi
 if [ -z "$IMAGE" -o "$IMAGE" = bspwm ]; then
