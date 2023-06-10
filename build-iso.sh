@@ -64,7 +64,7 @@ readonly HERBSTLUFTWM_PKGS="$X_PKGS lxdm herbstluftwm gvfs-afc gvfs-mtp gvfs-smb
 readonly PEKWM_PKGS="$X_PKGS lxdm pekwm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview tint2 nitrogen lxtask upower cbatticon volumeicon" 
 readonly ICEWM_PKGS="$X_PKGS lxdm icewm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
 readonly AWESOMEWM_PKGS="$X_PKGS lxdm awesome gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm lxterminal lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
-readonly FVWM3_PKGS="$X_PKGS lxdm fvwm3 pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet xterm lxterminal lxappearance picom gpicview lxtask upower volumeicon cbatticon"
+readonly FVWM3_PKGS="$X_PKGS lxdm fvwm3 pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet xterm lxterminal lxappearance picom gpicview lxtask upower volumeicon cbatticon picom stalonetray xdgmenumaker micro papirus-icon-theme scrot"
 
 [ ! -x mklive.sh ] && exit 0
 
