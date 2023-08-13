@@ -10,7 +10,7 @@ case $opt in
 	v) LINUX_VERSION="$OPTARG";;
 	S) SERVICE_LIST="$OPTARG";;
 	I) INCLUDE_DIRECTORY="$OPTARG";;
-	h) echo "${0#/*}: [-a arch] [-b base|tty|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|awesomewm|blackboxwm|bspwm|herbstluftwm|pekwm|icewm|fvwm3] [-r repo]" >&2; exit 1;;
+	h) echo "${0#/*}: [-a arch] [-b base|tty|e|xfce|mate|cinnamon|gnome|kde|lxde|lxqt|openbox|jwm|fluxboxwm|awesomewm|blackboxwm|bspwm|herbstluftwm|pekwm|icewm|fvwm] [-r repo]" >&2; exit 1;;
 	r) REPO="-r $OPTARG $REPO";;
 esac
 done
@@ -39,7 +39,7 @@ readonly HERBSTLUFTWM_IMG=void-live-${ARCH}-${DATE}-herbstluftwm.iso
 readonly PEKWM_IMG=void-live-${ARCH}-${DATE}-pekwm.iso
 readonly ICEWM_IMG=void-live-${ARCH}-${DATE}-icewm.iso
 readonly AWESOMEWM_IMG=void-live-${ARCH}-${DATE}-awesomewm.iso
-readonly FVWM3_IMG=void-live-${ARCH}-${DATE}-fvwm3.iso
+readonly FVWM_IMG=void-live-${ARCH}-${DATE}-fvwm.iso
 
 readonly GRUB="grub-i386-efi grub-x86_64-efi"
 
@@ -65,7 +65,7 @@ readonly HERBSTLUFTWM_PKGS="$X_PKGS lxdm herbstluftwm gvfs-afc gvfs-mtp gvfs-smb
 readonly PEKWM_PKGS="$X_PKGS lxdm pekwm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview tint2 nitrogen lxtask upower cbatticon volumeicon" 
 readonly ICEWM_PKGS="$X_PKGS lxdm icewm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
 readonly AWESOMEWM_PKGS="$X_PKGS lxdm awesome gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm lxterminal lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
-readonly FVWM3_PKGS="$X_PKGS fvwm fvwm3 python3-xdg pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet xterm lxterminal lxappearance picom gpicview lxtask upower volumeicon cbatticon picom stalonetray micro papirus-icon-theme scrot nitrogen"
+readonly FVWM_PKGS="$X_PKGS fvwm fvwm3 python3-xdg pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet xterm lxterminal lxappearance picom gpicview lxtask upower volumeicon cbatticon picom stalonetray micro papirus-icon-theme scrot nitrogen"
 
 [ ! -x mklive.sh ] && exit 0
 
@@ -166,8 +166,8 @@ if [ -z "$IMAGE" -o "$IMAGE" = awesomewm ]; then
 	        ./mklive.sh -a $ARCH -o $AWESOMEWM_IMG -p "$AWESOMEWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus" -v linux5.15
 	fi
 fi
-if [ -z "$IMAGE"-o "$IMAGE" = fvwm3 ]; then
-	if [ ! -e $FVWM3]; then
-		./mklive -a $ARCH -o $FVWM3_IMG -p "$FVWM3_PKGS" ${REPO} "$@" -S "NetworkManager dbus"
+if [ -z "$IMAGE" -o "$IMAGE" = fvwm ]; then
+	if [ ! -e $FVWM ]; then
+		./mklive -a $ARCH -o $FVWM_IMG -p "$FVWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus"
 	fi
 fi
