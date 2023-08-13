@@ -166,7 +166,7 @@ if [ -z "$IMAGE" -o "$IMAGE" = awesomewm ]; then
 	        ./mklive.sh -a $ARCH -o $AWESOMEWM_IMG -p "$AWESOMEWM_PKGS" ${REPO} "$@" -S "NetworkManager dbus" -v linux5.15
 	fi
 fi
-if [-z "$IMAGE"-o "$IMAGE" = fvwm3 ]; then
+if [ -z "$IMAGE"-o "$IMAGE" = fvwm3 ]; then
 	if [ ! -e $FVWM3]; then
 		./mklive -a $ARCH -o $FVWM3_IMG -p "$FVWM3_PKGS" ${REPO} "$@" -S "NetworkManager dbus"
 	fi
