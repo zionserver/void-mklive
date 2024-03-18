@@ -64,7 +64,7 @@ readonly BSPWM_PKGS="$X_PKGS $IVDRI_PKGS lxdm bspwm sxhkd gvfs-afc gvfs-mtp gvfs
 readonly HERBSTLUFTWM_PKGS="$X_PKGS lxdm herbstluftwm gvfs-afc gvfs-mtp gvfs-smb udisks2 network-manager-applet pcmanfm firefox-esr sakura lxappearance picom dzen2 dmenu"
 readonly PEKWM_PKGS="$X_PKGS lxdm pekwm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview tint2 nitrogen lxtask upower cbatticon volumeicon" 
 readonly ICEWM_PKGS="$X_PKGS lxdm icewm pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm sakura lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
-readonly AWESOMEWM_PKGS="$X_PKGS lxdm awesome gvfs-afc gvfs-mtp gvfs-smb network-manager-applet midori xterm lxterminal lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
+readonly AWESOMEWM_PKGS="$X_PKGS lxdm awesome gvfs-afc gvfs-mtp gvfs-smb network-manager-applet firefox xterm lxterminal lxappearance picom menumaker xdgmenumaker gpicview lxtask upower volumeicon cbatticon"
 readonly FVWM_PKGS="$X_PKGS fvwm fvwm3 python3-xdg pcmanfm gvfs-afc gvfs-mtp gvfs-smb network-manager-applet xterm lxterminal lxappearance picom gpicview lxtask upower volumeicon cbatticon picom stalonetray micro papirus-icon-theme scrot nitrogen"
 
 [ ! -x mklive.sh ] && exit 0
